@@ -1,3 +1,6 @@
+/* =========================================================
+   Design Tokens
+========================================================= */
 :root {
     --bg: #f1f3f6;
     --bg-accent: #e8eef5;
@@ -10,6 +13,7 @@
     --accent: #f77f00;
     --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     --radius: 18px;
+
     --status-red: #e74c3c;
     --status-yellow: #f1c40f;
     --status-green: #2ecc71;
@@ -17,6 +21,9 @@
     --status-ring: rgba(15, 23, 42, 0.08);
 }
 
+/* =========================================================
+   Reset / Base
+========================================================= */
 * {
     box-sizing: border-box;
 }
@@ -34,6 +41,78 @@ body {
     line-height: 1.6;
 }
 
+/* =========================================================
+   Typography
+========================================================= */
+h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-family: "Sora", "Noto Sans TC", sans-serif;
+}
+
+p {
+    margin: 10px 0;
+    color: var(--text);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15, 76, 92, 0.3);
+    padding-bottom: 2px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.lead {
+    margin: 0 0 16px;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.muted-555 {
+    color: #556070;
+    font-size: 14px;
+}
+
+/* =========================================================
+   Utilities
+========================================================= */
+.hidden {
+    display: none !important;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-inline {
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================================
+   Layout
+========================================================= */
 .page {
     max-width: 1100px;
     margin: 0 auto;
@@ -53,7 +132,6 @@ body {
     overflow: hidden;
 }
 
-
 .hero-content h1 {
     font-family: "Sora", "Noto Sans TC", sans-serif;
     font-size: 36px;
@@ -61,58 +139,10 @@ body {
     letter-spacing: 0.5px;
 }
 
-.eyebrow {
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 600;
-}
-
-.lead {
-    margin: 0 0 16px;
-    font-size: 16px;
-    color: var(--text);
-}
-
 .hero-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-.tag {
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(15, 76, 92, 0.08);
-    color: var(--primary);
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.hero-panel {
-    background: #0f4c5c;
-    color: #f8fafc;
-    border-radius: 20px;
-    padding: 20px 22px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.panel-title {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: 0.3px;
-}
-
-.checklist {
-    margin: 0;
-    padding-left: 18px;
-}
-
-.checklist li {
-    margin: 8px 0;
-    color: #f8fafc;
 }
 
 .content-grid {
@@ -142,6 +172,9 @@ body {
     grid-area: guide;
 }
 
+/* =========================================================
+   Components - Card / Panel / Tag
+========================================================= */
 .card {
     background: var(--card);
     border-radius: var(--radius);
@@ -157,17 +190,6 @@ body {
     background: linear-gradient(180deg, #ffffff 0%, #f9fbfd 100%);
 }
 
-@keyframes rise {
-    from {
-        transform: translateY(12px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 .card-header {
     cursor: pointer;
     user-select: none;
@@ -179,18 +201,6 @@ body {
 
 .card-header:hover {
     opacity: 0.7;
-}
-
-.collapse-icon {
-    display: inline-block;
-    font-size: 18px;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    line-height: 1;
-}
-
-.card.collapsed .collapse-icon {
-    transform: rotate(-90deg);
 }
 
 .card-content {
@@ -205,44 +215,55 @@ body {
     opacity: 0;
 }
 
-h3 {
-    margin: 0 0 12px;
+.collapse-icon {
+    display: inline-block;
     font-size: 18px;
-    font-family: "Sora", "Noto Sans TC", sans-serif;
-}
-
-p {
-    margin: 10px 0;
-    color: var(--text);
-}
-
-.muted {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.muted-555 {
-    color: #556070;
-    font-size: 14px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.flex-center {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.title-inline {
-    margin: 0;
+    font-weight: bold;
+    transition: transform 0.3s ease;
     line-height: 1;
-    display: flex;
-    align-items: center;
 }
 
+.card.collapsed .collapse-icon {
+    transform: rotate(-90deg);
+}
+
+.hero-panel {
+    background: #0f4c5c;
+    color: #f8fafc;
+    border-radius: 20px;
+    padding: 20px 22px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.panel-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.tag {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(15, 76, 92, 0.08);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.checklist {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.checklist li {
+    margin: 8px 0;
+    color: #f8fafc;
+}
+
+/* =========================================================
+   Components - Form
+========================================================= */
 .field {
     display: grid;
     gap: 6px;
@@ -286,6 +307,9 @@ select:focus {
     color: var(--muted);
 }
 
+/* =========================================================
+   Components - Button
+========================================================= */
 .btn-row {
     display: flex;
     gap: 10px;
@@ -293,7 +317,8 @@ select:focus {
     margin-top: 8px;
 }
 
-button {
+button,
+.button {
     height: 40px;
     padding: 0 18px;
     border: none;
@@ -303,20 +328,25 @@ button {
     cursor: pointer;
     font-weight: 700;
     font-size: 14px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
+    text-decoration: none;
+    border-bottom: none;
 }
 
-button:hover {
+button:hover,
+.button:hover {
     background: var(--primary-dark);
     transform: translateY(-1px);
+    text-decoration: none;
 }
 
-button:active {
+button:active,
+.button:active {
     transform: translateY(0);
 }
 
@@ -331,6 +361,9 @@ button:active {
     background: rgba(15, 76, 92, 0.08);
 }
 
+/* =========================================================
+   Components - Result / Status
+========================================================= */
 #result {
     margin-top: 12px;
     padding: 14px 16px;
@@ -393,17 +426,9 @@ button:active {
     background: var(--status-green);
 }
 
-a {
-    color: var(--primary);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(15, 76, 92, 0.3);
-    padding-bottom: 2px;
-}
-
-a:hover {
-    opacity: 0.8;
-}
-
+/* =========================================================
+   Components - Footer
+========================================================= */
 .footer {
     margin-top: 24px;
     padding: 18px 20px;
@@ -411,11 +436,98 @@ a:hover {
     border-radius: 16px;
     border: 1px solid var(--line);
 }
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
+.footer__links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer__links a {
+    font-weight: 500;
+    border-bottom: none;
+}
+
+/* =========================================================
+   Feature - Tool Card
+========================================================= */
+.tool-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.tool-card__title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.tool-card__desc {
+    margin-top: 6px;
+}
+
+.tool-card--disabled {
+    opacity: 0.6;
+}
+
+.tool-card--disabled .tool-card__title {
+    color: var(--muted);
+}
+
+.tool-card--disabled:hover {
+    transform: none;
+    cursor: default;
+}
+
+/* =========================================================
+   Feature - Home
+========================================================= */
+.home-section + .home-section {
+    margin-top: 22px;
+}
+
+.tool-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.tool-card__body {
+    flex: 1;
+}
+
+.tool-card__desc--tight {
+    margin: 6px 0 0;
+}
+
+/* =========================================================
+   Animation
+========================================================= */
+@keyframes rise {
+    from {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
 @media (max-width: 960px) {
     .hero {
         grid-template-columns: 1fr;
     }
+
     .content-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -424,26 +536,41 @@ a:hover {
             "result"
             "guide";
     }
+
+    .tool-card {
+        align-items: flex-start;
+    }
 }
 
 @media (max-width: 600px) {
     .page {
         padding: 24px 14px 48px;
     }
+
     .hero {
         padding: 22px 18px;
     }
+
     .hero-content h1 {
         font-size: 28px;
     }
-    button {
-        width: 100%;
-    }
+
     .btn-row {
         flex-direction: column;
     }
+
+    button,
+    .button {
+        width: 100%;
+    }
+
     input[type="number"],
     select {
         width: 100%;
+    }
+
+    .tool-card {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
