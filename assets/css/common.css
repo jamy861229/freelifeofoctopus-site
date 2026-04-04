@@ -1,6 +1,6 @@
-/* =========================================================
+/* ==========================
    Design Tokens
-========================================================= */
+============================= */
 :root {
     --bg: #f1f3f6;
     --bg-accent: #e8eef5;
@@ -21,9 +21,9 @@
     --status-ring: rgba(15, 23, 42, 0.08);
 }
 
-/* =========================================================
+/* ==========================
    Reset / Base
-========================================================= */
+============================= */
 * {
     box-sizing: border-box;
 }
@@ -41,9 +41,9 @@ body {
     line-height: 1.6;
 }
 
-/* =========================================================
+/* ==========================
    Typography
-========================================================= */
+============================= */
 h3 {
     margin: 0 0 12px;
     font-size: 18px;
@@ -90,9 +90,9 @@ a:hover {
     font-size: 14px;
 }
 
-/* =========================================================
+/* ==========================
    Utilities
-========================================================= */
+============================= */
 .hidden {
     display: none !important;
 }
@@ -110,9 +110,9 @@ a:hover {
     align-items: center;
 }
 
-/* =========================================================
+/* ==========================
    Layout
-========================================================= */
+============================= */
 .page {
     max-width: 1100px;
     margin: 0 auto;
@@ -172,9 +172,9 @@ a:hover {
     grid-area: guide;
 }
 
-/* =========================================================
+/* ==========================
    Components - Card / Panel / Tag
-========================================================= */
+============================= */
 .card {
     background: var(--card);
     border-radius: var(--radius);
@@ -261,9 +261,9 @@ a:hover {
     color: #f8fafc;
 }
 
-/* =========================================================
+/* ==========================
    Components - Form
-========================================================= */
+============================= */
 .field {
     display: grid;
     gap: 6px;
@@ -307,9 +307,9 @@ select:focus {
     color: var(--muted);
 }
 
-/* =========================================================
+/* ==========================
    Components - Button
-========================================================= */
+============================= */
 .btn-row {
     display: flex;
     gap: 10px;
@@ -361,9 +361,9 @@ button:active,
     background: rgba(15, 76, 92, 0.08);
 }
 
-/* =========================================================
+/* ==========================
    Components - Result / Status
-========================================================= */
+============================= */
 #result {
     margin-top: 12px;
     padding: 14px 16px;
@@ -426,9 +426,9 @@ button:active,
     background: var(--status-green);
 }
 
-/* =========================================================
+/* ==========================
    Components - Footer
-========================================================= */
+============================= */
 .site-footer {
     margin-top: 40px;
     padding: 20px 16px;
@@ -475,9 +475,9 @@ button:active,
     letter-spacing: 0.2px;
 }
 
-/* =========================================================
+/* ==========================
    Feature - Tool Card
-========================================================= */
+============================= */
 .tool-card {
     display: flex;
     justify-content: space-between;
@@ -507,9 +507,9 @@ button:active,
     cursor: default;
 }
 
-/* =========================================================
+/* ==========================
    Feature - Home
-========================================================= */
+============================= */
 .home-section + .home-section {
     margin-top: 22px;
 }
@@ -528,9 +528,9 @@ button:active,
     margin: 6px 0 0;
 }
 
-/* =========================================================
+/* ==========================
    Animation
-========================================================= */
+============================= */
 @keyframes rise {
     from {
         transform: translateY(12px);
@@ -542,9 +542,9 @@ button:active,
     }
 }
 
-/* =========================================================
+/* ==========================
    Responsive
-========================================================= */
+============================= */
 @media (max-width: 960px) {
     .hero {
         grid-template-columns: 1fr;
@@ -594,5 +594,209 @@ button:active,
     .tool-card {
         flex-direction: column;
         align-items: stretch;
+    }
+}
+
+/* ==========================
+   Tool Layout
+============================= */
+.tool-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+.input-panel,
+.result-panel {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.input-panel {
+    display: grid;
+    align-content: start;
+}
+
+.result-panel {
+    display: grid;
+    align-content: start;
+    gap: 16px;
+}
+
+/* ==========================
+   Mode Toggle
+============================= */
+.mode-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.mode-toggle button {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.mode-toggle button:hover {
+    background: #f9fafb;
+}
+
+.mode-toggle button.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(15, 76, 92, 0.2);
+}
+
+/* ==========================
+   Guide Panel
+============================= */
+.guide-panel {
+    margin-top: 22px;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    padding: 16px;
+    box-shadow: var(--shadow);
+}
+
+.guide-header {
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guide-header:hover {
+    opacity: 0.7;
+}
+
+.guide-content {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.guide-content p:first-child {
+    margin-top: 0;
+}
+
+.guide-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================
+   Result Summary
+============================= */
+.result-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.result-main {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    font-family: "Sora", "Noto Sans TC", sans-serif;
+    transition: color 0.2s ease;
+}
+
+.result-status-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 28px;
+}
+
+.result-status {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.result-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #e5e7eb;
+}
+
+.result-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.card-mini {
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-mini .label {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.card-mini .value {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.status-green {
+    color: var(--status-green);
+}
+.status-red {
+    color: var(--status-red);
+}
+.status-yellow {
+    color: var(--status-yellow);
+}
+
+.badge-green {
+    background: rgba(46, 204, 113, 0.15);
+    color: var(--status-green);
+}
+.badge-red {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--status-red);
+}
+.badge-yellow {
+    background: rgba(241, 196, 15, 0.15);
+    color: #b45309;
+}
+
+/* ==========================
+   Responsive - Tool Layout
+============================= */
+@media (max-width: 768px) {
+    .tool-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .mode-toggle button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .result-main {
+        font-size: 42px;
     }
 }
