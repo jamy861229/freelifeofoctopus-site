@@ -52,3 +52,20 @@ Action
 Result
 ↓
 Explanation
+```
+
+### Top Navigation (REQUIRED)
+
+Every tool page must include a breadcrumb at the top.
+
+Required format:
+
+```text
+首頁 / 工具名
+```
+
+Rules:
+- `首頁` must link back to the site homepage
+- current tool name must be plain text, not a link
+- breadcrumb should appear above the hero/title area
+- style should be low-emphasis and must not compete with the result section

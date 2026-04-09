@@ -87,6 +87,45 @@ a:hover {
 }
 
 /* ==========================
+   Components - Navigation
+============================= */
+.page-nav {
+    margin-bottom: 14px;
+}
+
+.breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 76, 92, 0.12);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.breadcrumb__link {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.breadcrumb__link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb__sep {
+    color: #94a3b8;
+}
+
+.breadcrumb__current {
+    color: var(--text);
+    font-weight: 600;
+}
+/* ==========================
    Layout
 ============================= */
 .page {
@@ -408,4 +447,5 @@ button:active,
         align-items: stretch;
     }
 }
+
 
