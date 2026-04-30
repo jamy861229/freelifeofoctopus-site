@@ -83,7 +83,7 @@ function runCalc() {
     const yieldRatePercent = readRequiredNumber("yieldRate");
     const stockPrice = readOptionalNumber("stockPrice");
     const feeRatePercent = readOptionalPercent("feeRate");
-    const premiumRatePercent = readOptionalPercent("premiumRate");
+    const useSupplementalPremium = document.getElementById("useSupplementalPremium").checked;
 
     if (!isPositiveNumber(twdAmount) || !isPositiveNumber(yieldRatePercent)) {
         renderEmpty("請先輸入完整且有效的投入金額與殖利率");
@@ -95,17 +95,16 @@ function runCalc() {
         return;
     }
 
-    if (![feeRatePercent, premiumRatePercent].every(isNonNegativeNumber)) {
-        renderEmpty("成本與補充保費估算率需為 0 或正數");
+    if (![feeRatePercent].every(isNonNegativeNumber)) {
+        renderEmpty("成本需為 0 或正數");
         return;
     }
 
     const yieldRate = yieldRatePercent / 100;
     const feeRate = feeRatePercent / 100;
-    const premiumRate = premiumRatePercent / 100;
     const grossDividend = calcGrossDividend(twdAmount, yieldRate);
     const costAmount = calcCostAmount(twdAmount, feeRate);
-    const premiumAmount = calcSupplementalPremiumAmount(grossDividend, premiumRate);
+    const premiumAmount = calcSupplementalPremiumAmount(grossDividend, useSupplementalPremium);
     const netAnnualIncome = calcNetAnnualIncome(grossDividend, costAmount, premiumAmount);
     const actualReturnRate = calcActualReturnRate(netAnnualIncome, twdAmount);
     const monthlyCashflow = calcMonthlyCashflow(netAnnualIncome);

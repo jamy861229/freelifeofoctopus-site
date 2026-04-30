@@ -1,6 +1,7 @@
 const calcBtn = document.getElementById("calcBtn");
 const demoBtn = document.getElementById("demoBtn");
 const numericInputs = document.querySelectorAll("input[type='number']");
+const useSupplementalPremium = document.getElementById("useSupplementalPremium");
 
 const debounce = (fn, delay = 250) => {
     let timer = null;
@@ -16,6 +17,8 @@ function bindInputEvents() {
     numericInputs.forEach((input) => {
         input.addEventListener("input", debouncedCalc);
     });
+
+    useSupplementalPremium?.addEventListener("change", runCalc);
 }
 
 function fillDemoData() {
@@ -23,7 +26,7 @@ function fillDemoData() {
     document.getElementById("yieldRate").value = 5;
     document.getElementById("stockPrice").value = 100;
     document.getElementById("feeRate").value = 0.1425;
-    document.getElementById("premiumRate").value = "";
+    document.getElementById("useSupplementalPremium").checked = false;
 
     runCalc();
 }

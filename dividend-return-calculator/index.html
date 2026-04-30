@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>股息報酬試算器(個股)｜快速評估現金流是否有感</title>
-    <meta name="description" content="輸入投入金額、殖利率、成本與補充保費估算率，快速試算股息投資的年收入、每月現金流與實際報酬率">
+    <meta name="description" content="輸入投入金額、殖利率與成本，選擇是否扣除補充保費，快速試算股息投資的年收入、每月現金流與實際報酬率">
     <meta name="keywords" content="股息, 配息, 殖利率, 股息報酬試算器(個股), 現金流, 被動收入, 投資工具">
     <meta name="author" content="Free Life of Octopus">
     <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="股息報酬試算器(個股)｜快速評估現金流是否有感">
-    <meta property="og:description" content="不只看表面殖利率，快速判斷扣除成本與補充保費估算後，股息收入是否真的值得投入">
+    <meta property="og:description" content="不只看表面殖利率，快速判斷扣除成本與補充保費後，股息收入是否真的值得投入">
     <meta property="og:url" content="https://freelifeofoctopus.com/dividend-return-calculator/">
     <meta property="og:site_name" content="Free Life of Octopus">
     <meta property="og:locale" content="zh_TW">
@@ -51,7 +51,7 @@
                 <div class="eyebrow">DIVIDEND CASH FLOW</div>
                 <h1>股息報酬試算器(個股)</h1>
                 <p class="lead">
-                    快速評估：<strong>表面殖利率，扣掉成本與補充保費估算後還剩多少？</strong><br />
+                    快速評估：<strong>表面殖利率，扣掉成本與補充保費後還剩多少？</strong><br />
                     幫你看懂股息收入是否真的能形成有感現金流
                 </p>
                 <div class="hero-tags">
@@ -64,7 +64,7 @@
                 <div class="panel-title">你可以用這個工具做什麼？</div>
                 <ul class="checklist">
                     <li>快速估算一年實際能拿到多少股息收入</li>
-                    <li>拆開看補充保費估算與成本對報酬率的壓縮，不只盯著殖利率</li>
+                    <li>拆開看補充保費與成本對報酬率的壓縮，不只盯著殖利率</li>
                     <li>先確認每月現金流是否有感，再決定這筆投資值不值得做</li>
                 </ul>
             </div>
@@ -94,10 +94,14 @@
                     <input id="feeRate" type="number" step="0.0001" value="0.1425" placeholder="預設 0.1425">
                 </div>
 
-                <div class="field">
-                    <label for="premiumRate">補充保費估算率（%）（可選）</label>
-                    <input id="premiumRate" type="number" step="0.01" placeholder="例如 2.11，未填視為 0">
-                </div>
+                <label class="toggle-row" for="useSupplementalPremium">
+                    <input id="useSupplementalPremium" type="checkbox">
+                    <span class="toggle-ui" aria-hidden="true"></span>
+                    <span>
+                        <span class="toggle-title">是否扣除補充保費</span>
+                        <span class="toggle-desc">固定以配息的 2.11% 估算，預設關閉</span>
+                    </span>
+                </label>
 
                 <div class="btn-row">
                     <button id="calcBtn" type="button">開始試算</button>
@@ -122,7 +126,7 @@
                         <div class="value" id="grossDividend"></div>
                     </div>
                     <div class="card-mini">
-                        <div class="label">補充保費估算</div>
+                        <div class="label">補充保費</div>
                         <div class="value" id="premiumImpact"></div>
                     </div>
                     <div class="card-mini">
@@ -152,12 +156,12 @@
             </div>
 
             <div class="guide-content" id="guideContent">
-                <p><strong>年實際股息收入</strong>：扣除補充保費估算與投入成本後，估算一年真正能留下的現金</p>
+                <p><strong>年實際股息收入</strong>：扣除補充保費與投入成本後，估算一年真正能留下的現金</p>
                 <p><strong>實際報酬率</strong>：用年實際股息收入除以投入金額，幫你判斷殖利率是否還有吸引力</p>
                 <p><strong>每月現金流</strong>：把年收入平均到 12 個月，快速看是否達到你想要的被動收入感受</p>
                 <p><strong>手續費 / 成本</strong>：預設以 0.1425% 作為常見的台股買入手續費估算，你可以依券商折扣、平台成本或自己的實際交易條件調整</p>
-                <p><strong>補充保費估算率</strong>：非必填，未填時視為 0，若你想粗估股利補充保費影響，可自行填入比例，例如 2.11</p>
-                <p><strong>補充保費提醒</strong>：本工具不會依健保正式扣費規則自動判定，這裡是手動粗估欄位，若要精算，仍應依單次配息金額與健保署規定判斷</p>
+                <p><strong>是否扣除補充保費</strong>：開啟後固定以股息收入的 2.11% 估算，預設關閉</p>
+                <p><strong>補充保費提醒</strong>：本工具不會依健保正式扣費規則自動判定，若要精算，仍應依單次配息金額與健保署規定判斷</p>
                 <p><strong>本工具假設殖利率固定，未納入股息稅負，也未考慮股價波動與再投入效果，僅適用於快速評估股息收入與報酬</strong></p>
             </div>
         </section>

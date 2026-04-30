@@ -1,4 +1,5 @@
 const MONTHLY_INCOME_TARGET = 10000;
+const SUPPLEMENTAL_PREMIUM_RATE = 0.0211;
 
 function calcGrossDividend(twdAmount, yieldRate) {
     if (twdAmount <= 0 || yieldRate < 0) return 0;
@@ -10,9 +11,9 @@ function calcCostAmount(twdAmount, feeRate) {
     return twdAmount * feeRate;
 }
 
-function calcSupplementalPremiumAmount(grossDividend, premiumRate) {
-    if (grossDividend <= 0 || premiumRate < 0) return 0;
-    return grossDividend * premiumRate;
+function calcSupplementalPremiumAmount(grossDividend, enabled) {
+    if (!enabled || grossDividend <= 0) return 0;
+    return grossDividend * SUPPLEMENTAL_PREMIUM_RATE;
 }
 
 function calcNetAnnualIncome(grossDividend, costAmount, supplementalPremiumAmount) {
